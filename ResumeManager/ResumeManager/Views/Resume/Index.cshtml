@@ -1,0 +1,105 @@
+﻿@model IEnumerable<ResumeManager.Models.Applicant>
+
+@{
+    ViewData["Title"] = "Index";
+
+    int intSno = 0;
+}
+<style>
+.avatar{
+    vertical-align:middle;
+    width:40px;
+    height:40px;
+    border-radius:50%;
+}
+</style>
+
+
+
+<div class= "container btn-group">
+    <div class = "col-10">
+        <h2>Registered Applicants</h2>
+    </div>
+    <div class= "col-2 btn-group justify-content-end p-3">
+        <a asp-action="Create" class="btn btn-sm btn-success">Create New</a>
+    </div>
+</div>
+<div class = "col-10">
+<p><h3>
+    Find a job & grow your career</h3>
+</p>
+<p>
+    <h4>
+        Recruiters a waiting for you. 
+    </h4>
+</p>
+<p>
+    <h6>
+        Join now by Clicking Create New... 
+    </h6>
+</p>
+<p>
+    <h8>
+        Kindly Contact our admin for any assistance...
+    </h8>
+</p>
+</div>
+
+
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Sl.No
+            </th>
+            <th></th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Gender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Age)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Qualification)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalExperience)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+            intSno = intSno + 1;
+            <tr>
+                <td>
+                    @intSno
+                </td>
+             <td>
+                <img src="~/images/@item.PhotoUrl" alt="" class="avatar">
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Age)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Qualification)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalExperience)
+            </td>
+           
+        </tr>
+}
+    </tbody>
+</table>
