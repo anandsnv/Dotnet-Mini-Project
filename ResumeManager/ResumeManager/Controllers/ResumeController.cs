@@ -20,8 +20,6 @@ namespace ResumeManager.Controllers
         private readonly IWebHostEnvironment _webHost;
 
 
-
-
         public ResumeController(ResumeDbContext context, IWebHostEnvironment webHost)
         {
             _context = context;
@@ -158,7 +156,7 @@ namespace ResumeManager.Controllers
 
             _context.SaveChanges();
 
-            return RedirectToAction("Index");
+            return RedirectToAction("Loggers");
         }
 
 
@@ -172,17 +170,18 @@ namespace ResumeManager.Controllers
                 .Where(a => a.Id == Id).FirstOrDefault();
 
             return View(applicant);
-
+            
         }
         [HttpPost]
         public IActionResult Edit(Applicant applicant)
         {
-            _context.Attach(applicant);
+            
             _context.Entry(applicant).State = EntityState.Modified;
 
+            
             _context.SaveChanges();
 
-            return RedirectToAction("Index");
+            return RedirectToAction("Loggers");
         }
         [Authorize]
         public IActionResult Secured()

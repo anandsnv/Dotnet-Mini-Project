@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<ResumeManager.Models.Applicant>
 
 @{
-    ViewData["Title"] = "Applicant Details";
+    ViewData["Title"] = "Loggers";
 
     int intSno = 0;
 }
@@ -14,11 +14,6 @@
 }
 </style>
 
-@*<h1>Applicant Details</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>*@
 
 <div class= "container btn-group">
     <div class = "col-10">
@@ -28,7 +23,7 @@
 </div>
 
 <div class="col-8 p-2 justify-content-end">
-    <form asp-asp-controller= "Resume" asp-action="Index">
+    <form asp-asp-controller= "Resume" asp-action="Loggers">
         <span class="btn-group">
             <input class= "form-control"type="text" name= "SearchText"
                 placeholder="Search..." >
@@ -37,7 +32,7 @@
         </span>
         <span class= form-group>
          <div>
-                     <a asp-action="Index" >&nbsp;Get All Applicants&nbsp;</a>
+                     <a asp-action="Loggers" >&nbsp;Get All Applicants&nbsp;</a>
                 </div>
                 </span>
     </form>
